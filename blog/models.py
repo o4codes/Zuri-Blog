@@ -13,11 +13,3 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])
 
-
-class BlogUser(models.Model):
-    name = models.CharField(max_length=300)
-    email = models.EmailField(unique=True,max_length=300)
-    password = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.email

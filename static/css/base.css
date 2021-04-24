@@ -22,8 +22,19 @@ header h1 a {
 
 .nav-right {
     display: flex;
-    padding-top: 2rem;
+    padding-top: 16px;
+    flex-direction: column;
+    align-items: center;
 }
+
+.logged_in_nav {
+    display: flex;
+}
+
+.logged_in_nav p {
+    margin-right: 20px;
+}
+
 
 .post-entry {
     margin-bottom: 2rem;
