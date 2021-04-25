@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    {% for post in object_list %}
-    <div class = "post-entry">
-        <h2><a href="{% url 'post_detail' post.pk%}">{{post.title}}</a></h2>
-        <p>{{post.body}}</p>
-    </div>
-    {% endfor %}
+    {% if user.is_authenticated %}
+         {% for post in object_list %}
+            <div class = "post-entry">
+                <h2><a href="{% url 'post_detail' post.pk%}">{{post.title}}</a></h2>
+                <p>{{post.body}}</p>
+                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+            </div>
+        {% endfor %}       
+    {% else %}
+       <div class = "nav-right">
+            <h2> Welcome to my blog </h2>
+            <div class="logged_in_nav">
+                <p><a href="{% url 'login' %}">Log In</a></p>
+                <p><a href="{% url 'signup' %}">Sign Up</a>
+            </div>        
+        </div>    
+    {% endif %}
 {% endblock %}

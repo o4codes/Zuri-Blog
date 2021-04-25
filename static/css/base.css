@@ -20,12 +20,14 @@ header h1 a {
     margin-right: auto; 
 }
 
+
 .nav-right {
     display: flex;
     padding-top: 16px;
     flex-direction: column;
     align-items: center;
 }
+
 
 .logged_in_nav {
     display: flex;
@@ -35,7 +37,6 @@ header h1 a {
     margin-right: 20px;
 }
 
-
 .post-entry {
     margin-bottom: 2rem;
 }
@@ -44,6 +45,7 @@ header h1 a {
     margin-bottom: 2rem;
     margin: 0.5rem 0;
 }
+
 
 .post-entry h2 a,
 .post-entry h2 a:visited {
@@ -58,4 +60,8 @@ header h1 a {
 
 .post-entry h2 a:hover {
     color: red;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
 }
