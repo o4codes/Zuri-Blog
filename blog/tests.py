@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from .models import Post
+from .models import Post, Comment
 
 
 # Create your tests here.
@@ -18,6 +18,12 @@ class BlogTests(TestCase):
             body="Nice body",
             author=self.user
         )
+        
+        self.comment = Comment.objects.create(
+            body = "Nice post",
+            post = self.post,
+            name = self.user.username,
+        )
 
     def test_string_representation(self):
         post = Post(title="A simple title")
@@ -31,7 +37,6 @@ class BlogTests(TestCase):
     def test_post_list_view(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Nice body')
         self.assertTemplateUsed(response, 'home.html')
 
     def test_post_detail_view(self):
@@ -40,4 +45,17 @@ class BlogTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, 'Nice body')
-        self.assertTemplateUsed(response, 'blog/post_detail.html')
+        self.assertTemplateUsed(response, 'post_detail.html')
+
+    def test_comment_string_reps(self):
+        comment = Comment(body="Nice post")
+        self.assertEqual(str(comment), "Comment "+comment.body+" by "+comment.name)
+
+    def test_comment_post(self):
+        self.assertEqual(f'{self.post.title}', f'{self.comment.post.title}')
+        self.assertEqual(f'{self.user.username}', f'{self.comment.name}') #checks if logged in user made the comment
+
+    def test_post_comment_list(self):
+        response = self.client.get('/post/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Nice post')
