@@ -9,3 +9,5 @@ Thwe following are the features of the app
 3. Provides authentication using django user features.
 
 
+The project is deployed to heroku and the link to access it is located at
+[Heroku link](https://o4codes-zuri-blog.herokuapp.com/)
