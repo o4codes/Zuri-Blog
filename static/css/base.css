@@ -1,7 +1,7 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 18px;
-    background-color: #eeeeee;
+    background-color: #f5f5f5;
     margin: 0;
 }
 
@@ -58,7 +58,6 @@ body>div>h1 {
     margin-right: 6px;
 }
 .post-entry {
-    margin-bottom: 3rem;
     background-color: white;
     border-radius: 5px;
     margin: 1rem 6rem;
@@ -95,8 +94,58 @@ body>div>h1 {
     text-decoration: underline;
 }
 
+.post-action {
+    text-align: end;
+    margin: 1rem 6rem;
+    padding: 1rem 0;
+}
+
+.post-action a:first-of-type,
+.post-action a:last-of-type:hover {
+    border: 1px solid #000035;
+    padding: 0.5% 2%;
+    text-decoration: none;
+    color: #000035;
+    background-color: #eeeeee;
+    
+}
+.post-action a:last-of-type,
+.post-action a:first-of-type:hover {
+    border: 1px solid #000035;
+    padding: 0.5% 2%;
+    text-decoration: none;
+    color: white;
+    background-color: #000035;
+}
+
+.comments {
+    margin: 1rem 6rem;
+    padding: 1rem 0;
+}
+
+.comments>div:last-of-type {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.comments-action {
+    border: 1px solid #000035;
+    padding: 0.5% 2%;
+    text-decoration: none;
+    color: white;
+    background-color: #000035;
+}
+
 .comment {
-    margin: 20px 0px 20px 20px;
+    text-align: end;
+    background-color: white;
+    margin-bottom: 1em;
+    padding:0 2rem;
+    padding-bottom: 1rem;
+    padding-top: 0.3rem;
+}
+.comment div:first-of-type {
+    text-align: start;
 }
 
 .outline-btn {
@@ -104,5 +153,10 @@ body>div>h1 {
     padding: 0.5% 2%;
     
 }
+
+.forms {
+    padding: 1.5rem 3rem;  
+}
+
 
 
