@@ -8,17 +8,26 @@
 <body>
     <header>
         <div class="nav-left">
-            <h1><a href="{% url 'home' %}">Django Zuri Blog</a></h1>
+            <h2><a href="{% url 'home' %}">Django Zuri Blog</a></h2>
         </div>
         {% if user.is_authenticated %}
             <div class="nav-right">          
-                <p>Hello {{user.username}}</p>
                 <div class="logged_in_nav">
-                    <p><a href = "{% url 'post_new' %}">New Blog Post</a></p>
+                    <p><a href = "{% url 'post_new' %}">Create Post</a></p>
+                    <div class="vl"></div>
                     <p><a href= "{% url 'password_reset'%}">Reset Password</a></p> 
-                    <p><a href= "{% url 'logout'%}">Log out</a></p>                  
+                    <div class="vl"></div>
+                    <p class ="outline-btn"><a  href= "{% url 'logout'%}">Log out</a></p>                  
                 </div>
-            </div>                  
+            </div>  
+         {% else %}
+            <div class = "nav-right">
+                <div class="logged_in_nav">
+                    <p><a href="{% url 'login' %}">Log In</a></p>
+                     <div class="vl"></div>
+                    <p class ="outline-btn"><a href="{% url 'signup' %}">Sign Up</a>
+                </div>        
+            </div>                
         {% endif %}
         
     </header>
